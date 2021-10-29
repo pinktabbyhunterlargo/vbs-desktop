@@ -1,0 +1,9 @@
+#!/bin/bash
+
+#This just exists to make it easier to write multiple
+
+cd ~/.local/
+cd share
+cd vbs-desktop
+./vdm-launch start
+echo "Closed"
