@@ -8,7 +8,7 @@ class App(QWidget):
 
     def __init__(self):
         super().__init__()
-        self.title = 'PyQt5 button - pythonspot.com'
+        self.title = 'vine boom desktop test'
         self.left = 10
         self.top = 10
         self.width = 320
@@ -19,9 +19,9 @@ class App(QWidget):
         self.setWindowTitle(self.title)
         self.setGeometry(self.left, self.top, self.width, self.height)
         
-        button = QPushButton('PyQt5 button', self)
-        button.setToolTip('This is an example button')
-        button.move(100,70)
+        button = QPushButton('vine boom sfx', self)
+        button.setToolTip('click for vine boom sfx')
+        button.move(10,10)
         button.clicked.connect(self.on_click)
         
         self.show()
