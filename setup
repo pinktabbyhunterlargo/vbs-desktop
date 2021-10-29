@@ -1,2 +1,72 @@
 #!/bin/bash
-echo "Baeoufvew8fw2fnm2eg07bfew+f +ewgew8 3qv"
+export $usr="$1"
+
+if [ "$usr" = "" ]; then
+  read -p "What usr-like directory will you use? (~/.local, /usr...): " usr
+fi
+cd $usr
+git clone https://github.com/pinktabbyhunterlargo/vbs-desktop/
+cd vbs-desktop
+chmod +x vbs-desktop
+cp vbs-desktop $usr/bin
+echo "centos-8"
+echo "debian-10"
+echo "fedora-31"
+echo "ubuntu-20.04"
+echo "custom (build)"
+echo "Choose closest match (enter for build)"
+read ver
+
+if [ "$ver" != "" ]; then
+  pip3 install -U -f https://extras.wxpython.org/wxPython4/extras/linux/gtk3/$ver/wxPython
+else
+  #compile time
+  echo "Dependencies or equivalents for the build:"
+  echo "python-dev"
+  echo "gtk2 (preferrably 3)"
+  echo "gstreamer"
+  echo "gstreamer-plugins-base"
+  echo "glut"
+  echo "libwebkitgtk"
+  echo "libjpeg,png,tiff,sdl,notify,sm"
+  echo "Make sure you have these, or re-run if it fails."
+  read
+  
+  echo "Temp folder location? 
+  read -p "tmp will be based here (optional): " tmp
+  cd $tmp
+  mkdir wx
+  
+    #hey i just want it to look fancy ok rangerAMG?
+    python3 -m venv builder_py
+    source builder_py/bin/activate
+    
+    which python
+    which pip
+    #docs say so, so i'm just writing it
+    
+    pip install -U pip
+    pip install -U six wheel setuptools
+    pip download wxPython
+    pip wheel -v wxPython-4.0.1.tar.gz  2>&1 | tee build.log
+    
+    echo "Build has completed or failed."
+    read -p "Cat error message? [Y/n] " cat
+    
+    if [ "$cat" = "" ]; then
+      cat build.log
+    elif [ "$cat" = "y" ] then
+      cat build.log
+    fi
+    
+    pip install wxPython-*.whl
+    python -c "import wx; a=wx.App(); wx.Frame(None,title='hello world').Show(); a.MainLoop();"
+    echo "Something should have appeared in a running desktop. If not, uh"
+    echo ""
+    echo "Please install the .whl using pip now."
+    echo $(pwd)
+    
+  
+  #echo 
+
+python3 apptest.py
