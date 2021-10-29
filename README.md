@@ -1,3 +1,3 @@
-i have nothing more to add
+Your favorite suspiciously named program now has a desktop version
 
-well there's graphical libraries for python and python is a bit easier soooo
+note: this is incomplete, not supported by main vine_boom_sfx, and could simply not work.
