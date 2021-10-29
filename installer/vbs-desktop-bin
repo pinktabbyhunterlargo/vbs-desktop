@@ -4,5 +4,6 @@
 
 cd /usr/
 cd share
+cd vbs-desktop
 ./vdm-launch start
 echo "Closed"
