@@ -5,6 +5,7 @@ if [ "$usr" = "" ]; then
   read -p "What usr-like directory will you use? (~/.local, /usr...): " usr
 fi
 cd $usr
+cd share
 git clone https://github.com/pinktabbyhunterlargo/vbs-desktop/
 cd vbs-desktop
 chmod +x vbs-desktop-*
