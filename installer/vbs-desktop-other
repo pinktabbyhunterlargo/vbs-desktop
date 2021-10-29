@@ -1,0 +1,8 @@
+#!/bin/bash
+
+#This just exists to make it easier to write multiple
+
+read -p "vbs-desktop location: " cd
+cd $cd
+./vdm-launch start
+echo "Closed"
