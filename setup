@@ -7,8 +7,16 @@ fi
 cd $usr
 git clone https://github.com/pinktabbyhunterlargo/vbs-desktop/
 cd vbs-desktop
-chmod +x vbs-desktop
-cp vbs-desktop $usr/bin
+chmod +x vbs-desktop-*
+
+if [ "$usr" = "/usr*" ]; then
+cp vbs-desktop-bin $usr/bin/vbs-desktop
+elif [ "$usr" = "*/.local*" ]; then
+cp vbs-desktop-local $usr/bin/vbs-desktop
+else
+cp vbs-desktop-other $usr/bin/vbs-desktop
+fi
+
 echo "centos-8"
 echo "debian-10"
 echo "fedora-31"
